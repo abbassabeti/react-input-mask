@@ -67,9 +67,9 @@ In case you need to implement more complex masking behavior, you can provide `be
   maskChar: '_',
   alwaysShowMask: false,
   formatChars: {
-    '9': '[0-9]',
+    '9': '[0-9\u0660-\u0669\u06f0-\u06f9]',
     'a': '[A-Za-z]',
-    '*': '[A-Za-z0-9]'
+    '*': '[A-Za-z0-9\u0660-\u0669\u06f0-\u06f9]'
   },
   permanents: [2, 5] // permanents is an array of indexes of the non-editable characters in the mask
 }
