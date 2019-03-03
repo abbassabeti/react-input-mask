@@ -237,6 +237,11 @@ class InputElement extends React.Component {
     return input.value;
   }
 
+  getEnglishValue = () => {
+    let r=/[\u0660-\u0669\u06F0-\u06F9]/g;
+    return input.value.replace(r,function(c) { return '0123456789'[c.charCodeAt(0)&0xf];});
+  }
+
   setInputValue = (value) => {
     const input = this.getInputDOMNode();
     if (!input) {
