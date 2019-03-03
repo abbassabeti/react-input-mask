@@ -62,8 +62,8 @@ class InputElement extends React.Component {
         newValue = modifiedValue.value;
       }
     }
-
-    this.value = newValue;
+    let r=/[\u0660-\u0669\u06F0-\u06F9]/g;
+    this.value = newValue.replace(r,function(c) { return '0123456789'[c.charCodeAt(0)&0xf];});
   }
 
   componentDidMount() {
@@ -148,7 +148,8 @@ class InputElement extends React.Component {
       newSelection = modifiedValue.selection;
     }
 
-    this.value = newValue;
+    let r=/[\u0660-\u0669\u06F0-\u06F9]/g;
+    this.value = newValue.replace(r,function(c) { return '0123456789'[c.charCodeAt(0)&0xf];});
     const isValueChanged = this.getInputValue() !== this.value;
 
     // render depends on this.maskOptions and this.value,
@@ -237,18 +238,13 @@ class InputElement extends React.Component {
     return input.value;
   }
 
-  getEnglishValue = () => {
-    let r=/[\u0660-\u0669\u06F0-\u06F9]/g;
-    return input.value.replace(r,function(c) { return '0123456789'[c.charCodeAt(0)&0xf];});
-  }
-
   setInputValue = (value) => {
     const input = this.getInputDOMNode();
     if (!input) {
       return;
     }
-
-    this.value = value;
+    let r=/[\u0660-\u0669\u06F0-\u06F9]/g;
+    this.value = value.replace(r,function(c) { return '0123456789'[c.charCodeAt(0)&0xf];});
     input.value = value;
   }
 
