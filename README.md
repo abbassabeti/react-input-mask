@@ -27,9 +27,9 @@ Also you can use it without a module bundler
 # Properties
 ### `mask` : `string`
 Mask string. Default format characters are:<br/>
-`9`: `0-9`<br/>
+`9`: `0-9\u0660-\u0669\u06f0-\u06f9`<br/>
 `a`: `A-Z, a-z`<br/>
-`*`: `A-Z, a-z, 0-9`
+`*`: `A-Z, a-z, 0-9\u0660-\u0669\u06f0-\u06f9`
 
 Any character can be escaped with a backslash. It will appear as a double backslash in JS strings. For example, a German phone mask with unremoveable prefix +49 will look like <code>mask="+4\\9 99 999 99"</code> or <code>mask={'+4\\\\9 99 999 99'}</code>
 
@@ -40,9 +40,9 @@ Character to cover unfilled parts of the mask. Default character is "\_". If set
 Defines format characters with characters as a keys and corresponding RegExp strings as a values. Default ones:
 ```js
 {
-  '9': '[0-9]',
+  '9': '[0-9\u0660-\u0669\u06f0-\u06f9]',
   'a': '[A-Za-z]',
-  '*': '[A-Za-z0-9]'
+  '*': '[A-Za-z0-9\u0660-\u0669\u06f0-\u06f9]'
 }
 ```
 
